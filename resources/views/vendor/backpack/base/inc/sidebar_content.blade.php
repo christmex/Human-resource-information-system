@@ -19,7 +19,7 @@
 </li>
 
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('employment-status') }}"><i class="nav-icon la la-question"></i> Employment statuses</a></li>
-<li class="nav-item"><a class="nav-link" href="{{ backpack_url('job-position') }}"><i class="nav-icon la la-question"></i> Job positions</a></li>
+<!-- <li class="nav-item"><a class="nav-link" href="{{ backpack_url('job-position') }}"><i class="nav-icon la la-question"></i> Job positions</a></li> -->
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('goverment-service') }}"><i class="nav-icon la la-question"></i> Goverment services</a></li>
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('service-credential') }}"><i class="nav-icon la la-question"></i> Service credentials</a></li>
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('employee') }}"><i class="nav-icon la la-question"></i> Employees</a></li>
