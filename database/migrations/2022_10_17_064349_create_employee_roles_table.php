@@ -20,8 +20,8 @@ return new class extends Migration
             $table->foreignId('department_id')->constrained('departments');
             $table->foreignId('school_level_id')->constrained('school_levels');
             $table->foreignId('employment_status_id')->constrained('employment_statuses');
-            $table->foreignId('start')->nullable();
-            $table->foreignId('end')->nullable();
+            $table->date('start')->nullable();
+            $table->date('end')->nullable();
             $table->timestamps();
         });
     }

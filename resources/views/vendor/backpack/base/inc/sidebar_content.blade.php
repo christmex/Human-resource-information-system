@@ -13,14 +13,22 @@
 <li class="nav-item nav-dropdown">
     <a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-cog"></i> Settings</a>
     <ul class="nav-dropdown-items">
-        <li class="nav-item"><a class="nav-link" href="{{ backpack_url('department') }}"><i class="nav-icon la la-question"></i> Departments</a></li>
-        <li class="nav-item"><a class="nav-link" href="{{ backpack_url('school-level') }}"><i class="nav-icon la la-question"></i> School levels</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ backpack_url('department') }}"><i class="nav-icon la la-building"></i> Departments</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ backpack_url('school-level') }}"><i class="nav-icon la la-school"></i> School levels</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ backpack_url('employment-status') }}"><i class="nav-icon la la-certificate"></i> Employment statuses</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ backpack_url('goverment-service') }}"><i class="nav-icon la la-monument"></i> Goverment services</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ backpack_url('service-credential') }}"><i class="nav-icon la la-user-shield"></i> Service credentials</a></li>
     </ul>
 </li>
 
-<li class="nav-item"><a class="nav-link" href="{{ backpack_url('employment-status') }}"><i class="nav-icon la la-question"></i> Employment statuses</a></li>
+<!-- Employees -->
+<li class="nav-item nav-dropdown">
+    <a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-users"></i> Employees</a>
+    <ul class="nav-dropdown-items">
+        <li class="nav-item"><a class="nav-link" href="{{ backpack_url('employee') }}"><i class="nav-icon la la-list"></i> All Employee</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ backpack_url('employee-role') }}"><i class="nav-icon la la-briefcase"></i> Employee roles</a></li>
+    </ul>
+</li>
+
 <!-- <li class="nav-item"><a class="nav-link" href="{{ backpack_url('job-position') }}"><i class="nav-icon la la-question"></i> Job positions</a></li> -->
-<li class="nav-item"><a class="nav-link" href="{{ backpack_url('goverment-service') }}"><i class="nav-icon la la-question"></i> Goverment services</a></li>
-<li class="nav-item"><a class="nav-link" href="{{ backpack_url('service-credential') }}"><i class="nav-icon la la-question"></i> Service credentials</a></li>
-<li class="nav-item"><a class="nav-link" href="{{ backpack_url('employee') }}"><i class="nav-icon la la-question"></i> Employees</a></li>
-<li class="nav-item"><a class="nav-link" href="{{ backpack_url('employee-role') }}"><i class="nav-icon la la-question"></i> Employee roles</a></li>
+

@@ -26,7 +26,6 @@ class EmployeeRequest extends FormRequest
     public function rules()
     {
         return [
-            'description' => 'required',
             'id_card' => [
                 'required',
                 Rule::unique('employees')->ignore(request()->id),
