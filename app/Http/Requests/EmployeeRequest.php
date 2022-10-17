@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class EmploymentStatusRequest extends FormRequest
+class EmployeeRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,11 +26,14 @@ class EmploymentStatusRequest extends FormRequest
     public function rules()
     {
         return [
-            'employment_status' => [
+            'description' => 'required',
+            'id_card' => [
                 'required',
-                Rule::unique('employment_statuses')->ignore(request()->id),
+                Rule::unique('employees')->ignore(request()->id),
             ],
-            'description' => 'required'
+            'place_of_birth' => 'required',
+            'date_of_birth' => 'required',
+            'start_working' => 'required',
         ];
     }
 
