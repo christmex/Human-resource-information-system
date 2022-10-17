@@ -21,4 +21,5 @@ Route::group([
     Route::crud('employment-status', 'EmploymentStatusCrudController');
     Route::crud('job-position', 'JobPositionCrudController');
     Route::crud('goverment-service', 'GovermentServiceCrudController');
+    Route::crud('service-credential', 'ServiceCredentialCrudController');
 }); // this should be the absolute last line of this file

@@ -13,10 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('goverment_services', function (Blueprint $table) {
+        Schema::create('service_credentials', function (Blueprint $table) {
             $table->id();
-            $table->string('goverment_service_name')->unique();
-            $table->foreignId('required_employment_status_id')->constrained('employment_statuses');
+            $table->string('serivce_name')->unique();
+            $table->string('serivce_url');
+            $table->string('serivce_login');
+            $table->string('serivce_password');
+            $table->text('description');
             $table->timestamps();
         });
     }
@@ -28,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('goverment_services');
+        Schema::dropIfExists('service_credentials');
     }
 };
