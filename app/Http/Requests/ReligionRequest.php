@@ -2,10 +2,9 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class EmployeeRequest extends FormRequest
+class ReligionRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,22 +25,7 @@ class EmployeeRequest extends FormRequest
     public function rules()
     {
         return [
-            'user_id' => [
-                'nullable',
-                'sometimes',
-                Rule::unique('employees')->ignore(request()->id),
-            ],
-            'id_card' => [
-                'nullable',
-                'sometimes',
-                Rule::unique('employees')->ignore(request()->id),
-            ],
-            'fullname' => 'required',
-            'place_of_birth' => 'required',
-            'date_of_birth' => 'required',
-            'sex' => 'required',
-            'religion_id' => 'required',
-            'start_working' => 'required',
+            'religion_name' => 'required'
         ];
     }
 

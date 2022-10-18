@@ -16,6 +16,7 @@
         <li class="nav-item"><a class="nav-link" href="{{ backpack_url('department') }}"><i class="nav-icon la la-building"></i> Departments</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ backpack_url('school-level') }}"><i class="nav-icon la la-school"></i> School levels</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ backpack_url('employment-status') }}"><i class="nav-icon la la-certificate"></i> Employment statuses</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ backpack_url('religion') }}"><i class="nav-icon la la-pray"></i> Religions</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ backpack_url('service-credential') }}"><i class="nav-icon la la-user-shield"></i> Service credentials</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ backpack_url('goverment-service') }}"><i class="nav-icon la la-monument"></i> Goverment services</a></li>
     </ul>
@@ -42,3 +43,4 @@
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('goverment-service') }}"><i class="nav-icon la la-question"></i> Goverment services</a></li>
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('school-level') }}"><i class="nav-icon la la-question"></i> School levels</a></li>
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('service-credential') }}"><i class="nav-icon la la-question"></i> Service credentials</a></li> -->
+<!-- <li class="nav-item"><a class="nav-link" href="{{ backpack_url('religion') }}"><i class="nav-icon la la-question"></i> Religions</a></li> -->

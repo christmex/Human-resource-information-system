@@ -52,6 +52,22 @@ class EmployeeCrudController extends CrudController
         CRUD::column('id_card');
         CRUD::column('place_of_birth');
         CRUD::column('date_of_birth');
+        CRUD::addColumn([
+            'name'  => 'sex',
+            'label' => 'Sex',
+            'type'  => 'boolean',
+            'options' => [0 => 'P', 1 => 'L']
+        ]);
+        CRUD::addColumn([
+            "name" => "religion_id",
+            "key" => "religion_id",
+            "label" => "Religion",
+            "entity" => "Religion", //relation in model
+            "model" => "App\Models\Religion",
+            "type" => "select",
+            "attribute" => "religion_name"
+        ]);
+        CRUD::column('highest_certificate');
         CRUD::column('start_working');
         // CRUD::addColumn([
         //     "name" => "employment_status_id",
@@ -111,6 +127,21 @@ class EmployeeCrudController extends CrudController
         CRUD::field('id_card');
         CRUD::field('place_of_birth');
         CRUD::field('date_of_birth');
+        $this->crud->addField([
+            'type' => 'radio',
+            'name' => 'sex', // the relationship name in your Migration
+            'options' => [
+                0 => "Perempuan",
+                1 => "Laki-Laki"
+            ]
+        ]);
+        $this->crud->addField([
+            'type' => 'select',
+            'name' => 'religion_id', // the relationship name in your Migration
+            'entity' => 'Religion', // the relationship name in your Model
+            'attribute' => 'religion_name', // attribute that is shown to admin
+        ]);
+        CRUD::field('highest_certificate');
         CRUD::field('start_working');
         // $this->crud->addField([
         //     'type' => 'select',

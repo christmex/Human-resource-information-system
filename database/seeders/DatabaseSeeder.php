@@ -131,6 +131,11 @@ class DatabaseSeeder extends Seeder
         ]);
         // Goverment Service
 
+        // Religion
+        \App\Models\Religion::create([
+            'religion_name' => 'Kristen'
+        ]);
+        // Religion
         
         // Employee
         \App\Models\Employee::create([
@@ -139,6 +144,9 @@ class DatabaseSeeder extends Seeder
             'id_card' => NULL,
             'place_of_birth' => 'Poso',
             'date_of_birth' => '2000-07-23',
+            'sex' => 1,
+            'religion_id' => 1,
+            'highest_certificate' => NULL,
             'start_working' => '2021-01-26',
             'end_contract' => '2023-01-25',
             'description' => NULL
@@ -149,6 +157,9 @@ class DatabaseSeeder extends Seeder
             'id_card' => NULL,
             'place_of_birth' => 'Pematang Siantar',
             'date_of_birth' => '1977-10-11',
+            'sex' => 1,
+            'religion_id' => 1,
+            'highest_certificate' => NULL,
             'start_working' => '2005-07-18',
             'end_contract' => NULL,
             'description' => NULL

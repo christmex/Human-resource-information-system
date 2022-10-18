@@ -16,6 +16,9 @@ class Employee extends Model
         'id_card',
         'place_of_birth',
         'date_of_birth',
+        'sex',
+        'religion_id',
+        'highest_certificate',
         'start_working',
         // 'employment_status_id',
         'end_contract',
@@ -27,6 +30,11 @@ class Employee extends Model
     public function User()
     {
         return $this->belongsTo('App\Models\User', 'user_id','id');
+    }
+
+    public function Religion()
+    {
+        return $this->belongsTo('App\Models\Religion', 'religion_idd','id');
     }
 
     // public function EmploymentStatus()

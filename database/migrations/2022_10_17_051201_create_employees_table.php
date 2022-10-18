@@ -20,6 +20,9 @@ return new class extends Migration
             $table->string('id_card')->nullable()->unique();
             $table->string('place_of_birth');
             $table->date('date_of_birth');
+            $table->boolean('sex');
+            $table->foreignId('religion_id')->constrained();
+            $table->string('highest_certificate')->nullable();
             $table->date('start_working');
             $table->date('end_contract')->nullable();
             $table->text('description')->nullable();
