@@ -26,13 +26,13 @@ class ServiceCredentialRequest extends FormRequest
     public function rules()
     {
         return [
-            'serivce_name' => [
+            'service_name' => [
                 'required',
                 Rule::unique('service_credentials')->ignore(request()->id),
             ],
-            'serivce_url' => 'required',
-            'serivce_login' => 'required',
-            'serivce_password' => 'required',
+            'service_url' => 'required',
+            'service_login' => 'required',
+            'service_password' => 'required',
             'description' => 'required'
         ];
     }

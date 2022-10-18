@@ -12,7 +12,7 @@ class EmployeeRegisterAtGovService extends Model
 
     protected $fillable = [
         'employee_id',
-        'goverment_service_id',
+        'service_credential_id',
         'register_at'
     ];
 
@@ -21,8 +21,8 @@ class EmployeeRegisterAtGovService extends Model
         return $this->belongsTo('App\Models\Employee', 'employee_id','id');
     }
 
-    public function GovermentService()
+    public function ServiceCredential()
     {
-        return $this->belongsTo('App\Models\GovermentService', 'goverment_service_id','id');
+        return $this->belongsTo('App\Models\ServiceCredential', 'service_credential_id','id');
     }
 }

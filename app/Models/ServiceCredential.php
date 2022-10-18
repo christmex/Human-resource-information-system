@@ -11,10 +11,14 @@ class ServiceCredential extends Model
     use HasFactory;
 
     protected $fillable = [
-        'serivce_name',
-        'serivce_url',
-        'serivce_login',
-        'serivce_password',
+        'service_name',
+        'service_url',
+        'service_login',
+        'service_password',
         'description',
     ];
+
+    public function ServiceUrl() {
+        return '<a href="'.$this->service_url.'" target="_blank">'.$this->service_url.'</a>';
+    }
 }

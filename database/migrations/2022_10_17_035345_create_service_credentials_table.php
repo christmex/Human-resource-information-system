@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('service_credentials', function (Blueprint $table) {
             $table->id();
-            $table->string('serivce_name')->unique();
-            $table->string('serivce_url');
-            $table->string('serivce_login');
-            $table->string('serivce_password');
+            $table->string('service_name')->unique();
+            $table->string('service_url');
+            $table->string('service_login');
+            $table->string('service_password');
             $table->text('description');
             $table->timestamps();
         });

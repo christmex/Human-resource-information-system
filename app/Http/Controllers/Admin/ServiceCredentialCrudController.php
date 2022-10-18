@@ -39,11 +39,29 @@ class ServiceCredentialCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::column('serivce_name');
-        CRUD::column('serivce_url');
-        CRUD::column('serivce_login');
-        CRUD::column('serivce_password');
-        CRUD::column('description');
+        CRUD::column('service_name');
+        CRUD::addColumn([
+            'name'  => 'service_url',
+            'label' => 'Service Url', // Table column heading
+            'wrapper'   => [
+                // 'element' => 'a', // the element will default to "a" so you can skip it here
+                'href' => function ($crud, $column, $entry, $related_key) {
+                    return $entry->service_url;
+                },
+                'target' => '_blank',
+            ],
+        ]);
+        CRUD::column('service_login');
+        CRUD::column('service_password');
+        // CRUD::addColumn([
+        //     'name' => 'description',
+        //     'visibleInTable' => true
+        // ]);
+        CRUD::addColumn([
+            'name' => 'description',
+            'type' => 'textarea',
+            'limit' => false,
+         ]);
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -62,10 +80,10 @@ class ServiceCredentialCrudController extends CrudController
     {
         CRUD::setValidation(ServiceCredentialRequest::class);
 
-        CRUD::field('serivce_name');
-        CRUD::field('serivce_url');
-        CRUD::field('serivce_login');
-        CRUD::field('serivce_password');
+        CRUD::field('service_name');
+        CRUD::field('service_url');
+        CRUD::field('service_login');
+        CRUD::field('service_password');
         CRUD::field('description');
 
         /**

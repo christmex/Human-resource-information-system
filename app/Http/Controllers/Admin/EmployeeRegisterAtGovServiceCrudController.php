@@ -47,11 +47,11 @@ class EmployeeRegisterAtGovServiceCrudController extends CrudController
             "attribute" => "fullname"
         ]);
         CRUD::addColumn([
-            "label" => "Goverment Service",
-            "entity" => "GovermentService",
-            "model" => "App\Models\GovermentService",
+            "label" => "Service Name",
+            "entity" => "ServiceCredential",
+            "model" => "App\Models\ServiceCredential",
             "type" => "select",
-            "attribute" => "goverment_service_name"
+            "attribute" => "service_name"
         ]);
         CRUD::column('register_at');
 
@@ -81,9 +81,9 @@ class EmployeeRegisterAtGovServiceCrudController extends CrudController
         ]);
         $this->crud->addField([
             'type' => 'select',
-            'name' => 'goverment_service_id', // the relationship name in your Migration
-            'entity' => 'GovermentService', // the relationship name in your Model
-            'attribute' => 'goverment_service_name', // attribute that is shown to admin
+            'name' => 'service_credential_id', // the relationship name in your Migration
+            'entity' => 'ServiceCredential', // the relationship name in your Model
+            'attribute' => 'service_name', // attribute that is shown to admin
             'pivot' => false, // on create&update, do you need to add/delete pivot table entries?
         ]);
         // CRUD::field('goverment_service_id');

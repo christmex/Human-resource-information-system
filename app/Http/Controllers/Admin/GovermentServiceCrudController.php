@@ -39,7 +39,13 @@ class GovermentServiceCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::column('goverment_service_name');
+        CRUD::addColumn([
+            "label" => "Service Name",
+            "entity" => "ServiceCredential",
+            "model" => "App\Models\ServiceCredential",
+            "type" => "select",
+            "attribute" => "service_name"
+        ]);
         CRUD::addColumn([
             "label" => "Required Employment Status",
             "entity" => "EmploymentStatus",
@@ -65,8 +71,13 @@ class GovermentServiceCrudController extends CrudController
     {
         CRUD::setValidation(GovermentServiceRequest::class);
 
-        CRUD::field('goverment_service_name');
-        CRUD::field('required_employment_status_id');
+        $this->crud->addField([
+            'type' => 'select',
+            'name' => 'service_credential_id', // the relationship name in your Migration
+            'entity' => 'ServiceCredential', // the relationship name in your Model
+            'attribute' => 'service_name', // attribute that is shown to admin
+            'pivot' => false, // on create&update, do you need to add/delete pivot table entries?
+        ]);
         $this->crud->addField([
             'type' => 'select',
             'name' => 'required_employment_status_id', // the relationship name in your Migration

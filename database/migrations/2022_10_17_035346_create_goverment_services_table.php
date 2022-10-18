@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('goverment_services', function (Blueprint $table) {
             $table->id();
-            $table->string('goverment_service_name')->unique();
-            $table->foreignId('required_employment_status_id')->constrained('employment_statuses');
+            $table->foreignId('service_credential_id')->constrained('service_credentials')->onDelete('cascade');
+            $table->foreignId('required_employment_status_id')->constrained('employment_statuses')->onDelete('cascade');
             $table->timestamps();
         });
     }

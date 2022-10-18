@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('employee_register_at_gov_services', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('employee_id')->constrained('employees');
-            $table->foreignId('goverment_service_id')->constrained('goverment_services');
+            $table->foreignId('employee_id')->constrained('employees')->onDelete('cascade');
+            $table->foreignId('service_credential_id')->constrained('service_credentials')->onDelete('cascade');
             $table->date('register_at');
             $table->timestamps();
         });

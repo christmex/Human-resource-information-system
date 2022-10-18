@@ -26,7 +26,7 @@ class GovermentServiceRequest extends FormRequest
     public function rules()
     {
         return [
-            'goverment_service_name' => [
+            'service_credential_id' => [
                 'required',
                 Rule::unique('goverment_services')->ignore(request()->id),
             ],

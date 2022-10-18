@@ -11,9 +11,14 @@ class GovermentService extends Model
     use HasFactory;
 
     protected $fillable = [
-        'goverment_service_name',
+        'service_credential_id',
         'required_employment_status_id'
     ];
+
+    public function ServiceCredential()
+    {
+        return $this->belongsTo('App\Models\ServiceCredential', 'service_credential_id','id');
+    }
 
     public function EmploymentStatus()
     {
