@@ -28,9 +28,9 @@ class EmployeeRegisterAtGovServiceRequest extends FormRequest
         return [
             'employee_id' => [
                 'required',
-                Rule::unique('employee_register_at_gov_services')->where(fn ($query) => $query->where('goverment_service_id', request()->goverment_service_id))->ignore(request()->id)
+                Rule::unique('employee_register_at_gov_services')->where(fn ($query) => $query->where('service_credential_id', request()->service_credential_id))->ignore(request()->id)
             ],
-            'goverment_service_id' => 'required',
+            'service_credential_id' => 'required',
             'register_at' => 'required'
         ];
     }

@@ -42,6 +42,8 @@ class EmployeeRoleCrudController extends CrudController
     protected function setupListOperation()
     {
         CRUD::addColumn([
+            "name" => "employee_id",
+            "key" => "employee_id",
             "label" => "Employee Name",
             "entity" => "Employee",
             "model" => "App\Models\Employee",
