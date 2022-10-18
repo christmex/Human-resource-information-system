@@ -84,6 +84,12 @@ class EmployeeRoleCrudController extends CrudController
             "type" => "select",
             "attribute" => "employment_status"
         ]);
+        CRUD::addColumn([
+            'name'  => 'is_active',
+            'label' => 'Status Active',
+            'type'  => 'boolean',
+            'options' => [0 => 'Inactive', 1 => 'Active']
+        ]);
         CRUD::column('start');
         CRUD::column('end');
 
@@ -120,6 +126,13 @@ class EmployeeRoleCrudController extends CrudController
         ]);
         $this->crud->addField([
             'type' => 'select',
+            'name' => 'employment_status_id', // the relationship name in your Migration
+            'entity' => 'EmploymentStatus', // the relationship name in your Model
+            'attribute' => 'employment_status', // attribute that is shown to admin
+            'pivot' => false, // on create&update, do you need to add/delete pivot table entries?
+        ]);
+        $this->crud->addField([
+            'type' => 'select',
             'name' => 'department_id', // the relationship name in your Migration
             'entity' => 'Department', // the relationship name in your Model
             'attribute' => 'department_name', // attribute that is shown to admin
@@ -133,19 +146,17 @@ class EmployeeRoleCrudController extends CrudController
             'pivot' => false, // on create&update, do you need to add/delete pivot table entries?
         ]);
         $this->crud->addField([
-            'type' => 'select',
-            'name' => 'employment_status_id', // the relationship name in your Migration
-            'entity' => 'EmploymentStatus', // the relationship name in your Model
-            'attribute' => 'employment_status', // attribute that is shown to admin
-            'pivot' => false, // on create&update, do you need to add/delete pivot table entries?
-        ]);
-        $this->crud->addField([
             'name' => 'start',
             'label' => 'Start Year'
         ]);
         $this->crud->addField([
             'name' => 'end',
             'label' => 'End Year'
+        ]);
+        $this->crud->addField([
+            'name' => 'is_active',
+            'label' => 'Active Status',
+            'default' => true
         ]);
         // CRUD::field('start');
         // CRUD::field('end');

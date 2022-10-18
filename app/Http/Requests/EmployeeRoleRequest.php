@@ -31,9 +31,8 @@ class EmployeeRoleRequest extends FormRequest
                 Rule::unique('employee_roles')->where(fn ($query) => $query->where('role_id', request()->role_id)->where('department_id',request()->department_id)->where('school_level_id',request()->school_level_id)->where('employment_status_id',request()->employment_status_id)->where('start',request()->start)->where('end',request()->end))->ignore(request()->id)
             ],
             'role_id' => 'required',
-            'department_id' => 'required',
-            'school_level_id' => 'required',
-            'employment_status_id' => 'required'
+            'employment_status_id' => 'required',
+            'is_active' => 'required'
         ];
     }
 

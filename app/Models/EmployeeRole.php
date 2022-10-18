@@ -17,6 +17,7 @@ class EmployeeRole extends Model
         'department_id',
         'school_level_id',
         'employment_status_id',
+        'is_active',
         'start',
         'end'
     ];
