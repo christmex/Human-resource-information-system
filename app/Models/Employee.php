@@ -11,6 +11,7 @@ class Employee extends Model
     use HasFactory;
 
     protected $fillable = [
+        'user_id',
         'fullname',
         'id_card',
         'place_of_birth',
@@ -22,6 +23,11 @@ class Employee extends Model
         // 'department_id',
         // 'school_level_id'
     ];
+
+    public function User()
+    {
+        return $this->belongsTo('App\Models\User', 'user_id','id');
+    }
 
     // public function EmploymentStatus()
     // {

@@ -39,6 +39,15 @@ class EmployeeCrudController extends CrudController
      */
     protected function setupListOperation()
     {
+        CRUD::addColumn([
+            "name" => "user_id",
+            "key" => "user_id",
+            "label" => "Email",
+            "entity" => "User", //relation in model
+            "model" => "App\Models\User",
+            "type" => "select",
+            "attribute" => "email"
+        ]);
         CRUD::column('fullname');
         CRUD::column('id_card');
         CRUD::column('place_of_birth');
@@ -90,6 +99,14 @@ class EmployeeCrudController extends CrudController
     {
         CRUD::setValidation(EmployeeRequest::class);
 
+        $this->crud->addField([
+            'type' => 'select',
+            'name' => 'user_id', // the relationship name in your Migration
+            'entity' => 'User', // the relationship name in your Model
+            'attribute' => 'email', // attribute that is shown to admin
+            'allows_null' => true,
+            'default' => NULL
+        ]);
         CRUD::field('fullname');
         CRUD::field('id_card');
         CRUD::field('place_of_birth');

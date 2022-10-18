@@ -26,10 +26,17 @@ class EmployeeRequest extends FormRequest
     public function rules()
     {
         return [
-            'id_card' => [
-                'required',
+            'user_id' => [
+                'nullable',
+                'sometimes',
                 Rule::unique('employees')->ignore(request()->id),
             ],
+            'id_card' => [
+                'nullable',
+                'sometimes',
+                Rule::unique('employees')->ignore(request()->id),
+            ],
+            'fullname' => 'required',
             'place_of_birth' => 'required',
             'date_of_birth' => 'required',
             'start_working' => 'required',

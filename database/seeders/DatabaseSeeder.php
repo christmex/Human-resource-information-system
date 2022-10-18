@@ -17,8 +17,14 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         \App\Models\User::factory()->create([
-            'name' => 'super admin',
+            'name' => 'Jonathan Christian',
             'email' => 'super@admin.com',
+            'password' => bcrypt('mantapjiwa00'),
+        ]);
+
+        \App\Models\User::factory()->create([
+            'name' => 'Pinta N Rajagukguk',
+            'email' => 'koodirnator@yayasan.com',
             'password' => bcrypt('mantapjiwa00'),
         ]);
 
@@ -128,6 +134,7 @@ class DatabaseSeeder extends Seeder
         
         // Employee
         \App\Models\Employee::create([
+            'user_id' => NULL,
             'fullname' => 'Jonathan Christian',
             'id_card' => NULL,
             'place_of_birth' => 'Poso',
@@ -137,6 +144,7 @@ class DatabaseSeeder extends Seeder
             'description' => NULL
         ]);
         \App\Models\Employee::create([
+            'user_id' => NULL,
             'fullname' => 'Pinta N Rajagukguk',
             'id_card' => NULL,
             'place_of_birth' => 'Pematang Siantar',

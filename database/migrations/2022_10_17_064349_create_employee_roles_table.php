@@ -17,8 +17,10 @@ return new class extends Migration
             $table->id();
             $table->foreignId('employee_id')->constrained('employees');
             $table->foreignId('role_id')->constrained('roles');
-            $table->foreignId('department_id')->constrained('departments')->nullable();
-            $table->foreignId('school_level_id')->constrained('school_levels')->nullable();
+            // $table->foreignId('department_id')->constrained('departments')->nullable();
+            // $table->foreignId('school_level_id')->constrained('school_levels')->nullable();
+            $table->foreignId('department_id')->nullable()->constrained()->nullOnDelete();
+            $table->foreignId('school_level_id')->nullable()->constrained()->nullOnDelete();
             $table->foreignId('employment_status_id')->constrained('employment_statuses');
             $table->boolean('is_active')->nullable()->default(true);
             $table->date('start')->nullable();

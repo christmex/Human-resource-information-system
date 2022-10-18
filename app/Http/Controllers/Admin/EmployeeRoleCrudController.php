@@ -138,14 +138,16 @@ class EmployeeRoleCrudController extends CrudController
             'name' => 'department_id', // the relationship name in your Migration
             'entity' => 'Department', // the relationship name in your Model
             'attribute' => 'department_name', // attribute that is shown to admin
-            'pivot' => false, // on create&update, do you need to add/delete pivot table entries?
+            'allows_null' => true,
+            'default' => NULL
         ]);
         $this->crud->addField([
             'type' => 'select',
             'name' => 'school_level_id', // the relationship name in your Migration
             'entity' => 'SchoolLevel', // the relationship name in your Model
             'attribute' => 'school_level', // attribute that is shown to admin
-            'pivot' => false, // on create&update, do you need to add/delete pivot table entries?
+            'allows_null' => true,
+            'default' => NULL
         ]);
         $this->crud->addField([
             'name' => 'start',

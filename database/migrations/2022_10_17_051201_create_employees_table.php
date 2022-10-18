@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->nullable()->constrained()->nullOnDelete();
             $table->string('fullname');
             $table->string('id_card')->nullable()->unique();
             $table->string('place_of_birth');
@@ -24,6 +25,8 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->timestamps();
         });
+
+
     }
 
     /**
