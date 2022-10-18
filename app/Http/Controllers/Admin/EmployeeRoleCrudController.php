@@ -92,6 +92,12 @@ class EmployeeRoleCrudController extends CrudController
             'type'  => 'boolean',
             'options' => [0 => 'Inactive', 1 => 'Active']
         ]);
+        CRUD::addColumn([
+            'name'  => 'is_main_role',
+            'label' => 'Main Role',
+            'type'  => 'boolean',
+            'options' => [0 => 'No', 1 => 'Yes']
+        ]);
         CRUD::column('start');
         CRUD::column('end');
 
@@ -161,6 +167,11 @@ class EmployeeRoleCrudController extends CrudController
             'name' => 'is_active',
             'label' => 'Active Status',
             'default' => true
+        ]);
+        $this->crud->addField([
+            'name' => 'is_main_role',
+            'label' => 'Main Role',
+            'default' => false
         ]);
         // CRUD::field('start');
         // CRUD::field('end');

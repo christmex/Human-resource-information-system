@@ -32,7 +32,8 @@ class EmployeeRoleRequest extends FormRequest
             ],
             'role_id' => 'required',
             'employment_status_id' => 'required',
-            'is_active' => 'required'
+            'is_active' => 'required',
+            'is_main_role' => 'required'
         ];
     }
 

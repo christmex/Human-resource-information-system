@@ -23,6 +23,7 @@ return new class extends Migration
             $table->foreignId('school_level_id')->nullable()->constrained()->nullOnDelete();
             $table->foreignId('employment_status_id')->constrained('employment_statuses');
             $table->boolean('is_active')->nullable()->default(true);
+            $table->boolean('is_main_role')->default(false);
             $table->date('start')->nullable();
             $table->date('end')->nullable();
             $table->timestamps();

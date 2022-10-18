@@ -18,6 +18,7 @@ class EmployeeRole extends Model
         'school_level_id',
         'employment_status_id',
         'is_active',
+        'is_main_role',
         'start',
         'end'
     ];
