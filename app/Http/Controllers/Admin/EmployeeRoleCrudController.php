@@ -192,5 +192,12 @@ class EmployeeRoleCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
+        // change the attributes of a field
+        $this->crud->modifyField('employee_id', [
+            'type'  => 'hidden',
+            'attributes' => [
+                'readonly'    => 'readonly'
+              ], // change the HTML attributes of your input
+        ]);
     }
 }

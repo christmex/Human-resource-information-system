@@ -147,6 +147,7 @@ class DatabaseSeeder extends Seeder
             'sex' => 1,
             'religion_id' => 1,
             'highest_certificate' => NULL,
+            'read_employee_rules' => NULL,
             'start_working' => '2021-01-26',
             'end_contract' => '2023-01-25',
             'description' => NULL
@@ -157,9 +158,10 @@ class DatabaseSeeder extends Seeder
             'id_card' => NULL,
             'place_of_birth' => 'Pematang Siantar',
             'date_of_birth' => '1977-10-11',
-            'sex' => 1,
+            'sex' => 0,
             'religion_id' => 1,
             'highest_certificate' => NULL,
+            'read_employee_rules' => NULL,
             'start_working' => '2005-07-18',
             'end_contract' => NULL,
             'description' => NULL
@@ -174,6 +176,7 @@ class DatabaseSeeder extends Seeder
             'school_level_id' => 5,
             'employment_status_id' => 2,
             'is_active' => true,
+            'is_main_role' => true,
             'start' => '2021-01-26',
             'end' => '2023-01-25'
         ]);
@@ -184,6 +187,7 @@ class DatabaseSeeder extends Seeder
             'school_level_id' => 5,
             'employment_status_id' => 3,
             'is_active' => true,
+            'is_main_role' => true,
             'start' => '2005-07-18',
             'end' => NULL
         ]);

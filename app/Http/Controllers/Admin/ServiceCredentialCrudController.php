@@ -81,7 +81,13 @@ class ServiceCredentialCrudController extends CrudController
         CRUD::setValidation(ServiceCredentialRequest::class);
 
         CRUD::field('service_name');
-        CRUD::field('service_url');
+        CRUD::addField([   // URL
+            'name'  => 'service_url',
+            'label' => 'Service Url',
+            'type'  => 'url',
+            'hint'       => 'Please Put http:// or https:// as a prefix',
+            // 'prefix'       => ' a prefix',
+        ]);
         CRUD::field('service_login');
         CRUD::field('service_password');
         CRUD::field('description');

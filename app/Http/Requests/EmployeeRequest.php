@@ -36,12 +36,19 @@ class EmployeeRequest extends FormRequest
                 'sometimes',
                 Rule::unique('employees')->ignore(request()->id),
             ],
-            'fullname' => 'required',
-            'place_of_birth' => 'required',
+            'fullname' => [
+                'required',
+                Rule::unique('employees')->where(fn ($query) => $query->where('fullname',request()->fullname)->where('place_of_birth',request()->place_of_birth)->where('date_of_birth',request()->date_of_birth)->where('sex',request()->sex)->where('religion_id',request()->religion_id)->where('start_working',request()->start_working))->ignore(request()->id)
+            ],
+            // 'fullname' => 'required', //Kemungkinan pake ini untuk lebih dinamis, tpi dari 10 kasus hanya 1 kasus saja yang kemungkinan nama, ttl sama, jika itu yg diharapkan maka pakai ini yg di atas di comment
+            'place_of_birth' => ['required'],
             'date_of_birth' => 'required',
             'sex' => 'required',
             'religion_id' => 'required',
             'start_working' => 'required',
+            // for roles purpose
+            'role_id' => 'required|sometimes',
+            'employment_status_id' => 'required|sometimes',
         ];
     }
 

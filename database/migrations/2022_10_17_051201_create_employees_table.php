@@ -23,6 +23,7 @@ return new class extends Migration
             $table->boolean('sex');
             $table->foreignId('religion_id')->constrained();
             $table->string('highest_certificate')->nullable();
+            $table->date('read_employee_rules')->nullable();
             $table->date('start_working');
             $table->date('end_contract')->nullable();
             $table->text('description')->nullable();
