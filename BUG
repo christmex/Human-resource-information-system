@@ -1,0 +1,4 @@
+-> Jika data di menu employee di hapus maka hapus semua yang yang ada di "Employee Roles" dan "Employee Register At Gov Services" (DONE)
+
+-> Saat data di menu "employee roles" di hapus, maka hapus data yang ada di "Employee Register At Gov Services" jika : (TIDAK TAU INI BUG OR TIDAK NANTI PIKIRKAN LAGi)
+    - Status yg ada di "employee roles"

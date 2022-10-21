@@ -70,9 +70,9 @@ class DatabaseSeeder extends Seeder
         
         // Employment Status
         \App\Models\EmploymentStatus::create([
-            'employment_status' => '3 Bulan Percobaan',
+            'employment_status' => 'GTY/PTY',
             'order' => 1,
-            'description' => 'Pegawai yang baru '
+            'description' => 'Pegawai/Guru Tetap, umumnya status ini diberikan jika minimal 2 tahun masa kontrak plus kinerja yang baik, jika kinerja kurang bagus maka kemungkinan pegawai akan dilanjutkan dengan pkwt, di kasus lain, ada pegawai yang tidak perlu menunggu 2 tahun untuk menjadi Pegawai/Guru Tetap'
         ]);
 
         \App\Models\EmploymentStatus::create([
@@ -82,11 +82,17 @@ class DatabaseSeeder extends Seeder
         ]);
 
         \App\Models\EmploymentStatus::create([
-            'employment_status' => 'GTY/PTY',
+            'employment_status' => '3 Bulan Percobaan',
             'order' => 3,
-            'description' => 'Pegawai/Guru Tetap, umumnya status ini diberikan jika minimal 2 tahun masa kontrak plus kinerja yang baik, jika kinerja kurang bagus maka kemungkinan pegawai akan dilanjutkan dengan pkwt, di kasus lain, ada pegawai yang tidak perlu menunggu 2 tahun untuk menjadi Pegawai/Guru Tetap'
+            'description' => 'Pegawai yang baru '
         ]);
 
+
+        \App\Models\EmploymentStatus::create([
+            'employment_status' => 'Magang',
+            'order' => 4,
+            'description' => 'Pegawai yang baru '
+        ]);
         // Employment Status
 
 
@@ -130,7 +136,7 @@ class DatabaseSeeder extends Seeder
 
         \App\Models\GovermentService::create([
             'service_credential_id' => 3,
-            'required_employment_status_id' => 3
+            'required_employment_status_id' => 1
         ]);
         // Goverment Service
 
@@ -188,7 +194,7 @@ class DatabaseSeeder extends Seeder
             'role_id' => 1,
             'department_id' => 3,
             'school_level_id' => 5,
-            'employment_status_id' => 3,
+            'employment_status_id' => 1,
             'is_active' => true,
             'is_main_role' => true,
             'start' => '2005-07-18',

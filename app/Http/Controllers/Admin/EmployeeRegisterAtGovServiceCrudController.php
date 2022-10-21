@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\EmployeeRegisterAtGovServiceRequest;
+use App\Models\Employee;
+use App\Models\ServiceCredential;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
+use App\Http\Requests\EmployeeRegisterAtGovServiceRequest;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
@@ -14,7 +16,7 @@ use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 class EmployeeRegisterAtGovServiceCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation { store as traitStore; }
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
@@ -29,6 +31,31 @@ class EmployeeRegisterAtGovServiceCrudController extends CrudController
         CRUD::setModel(\App\Models\EmployeeRegisterAtGovService::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/employee-register-at-gov-service');
         CRUD::setEntityNameStrings('employee register at gov service', 'employee register at gov services');
+    }
+
+    public function store(){
+        // execute the FormRequest authorization and validation, if one is required
+        $request = $this->crud->validateRequest();
+        
+        // Get all of the request in array
+        $item = $this->crud->getStrippedSaveRequest($request);
+
+        // Get employee highest status data
+        $Employee = Employee::find($item['employee_id'])->GetMinEmployeeEmploymentStatus(); 
+
+        // Get all Goverment service with employee status
+        $ServiceCredential = ServiceCredential::find($item['service_credential_id'])->GovermentService->EmploymentStatus->order;
+
+        // Check if the user status more highest than credential status 
+        if($ServiceCredential < $Employee){
+            // return \Alert::success(trans('backpack::crud.insert_success'))->flash();
+            \Alert::error('Employee status cant perform this action')->flash();
+            return back()->withInput();
+        }
+
+        $response = $this->traitStore();
+        return $response;
+
     }
 
     /**
@@ -90,9 +117,6 @@ class EmployeeRegisterAtGovServiceCrudController extends CrudController
         // CRUD::field('goverment_service_id');
         CRUD::field('register_at');
 
-        $this->check();
-
-
         /**
          * Fields can be defined using the fluent syntax or array syntax:
          * - CRUD::field('price')->type('number');
@@ -109,9 +133,5 @@ class EmployeeRegisterAtGovServiceCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
-    }
-
-    protected function check(){
-        dd($this);
     }
 }
