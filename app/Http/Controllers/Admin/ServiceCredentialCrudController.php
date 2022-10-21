@@ -53,6 +53,7 @@ class ServiceCredentialCrudController extends CrudController
         ]);
         CRUD::column('service_login');
         CRUD::column('service_password');
+        CRUD::column('css_class');
         // CRUD::addColumn([
         //     'name' => 'description',
         //     'visibleInTable' => true
@@ -90,6 +91,7 @@ class ServiceCredentialCrudController extends CrudController
         ]);
         CRUD::field('service_login');
         CRUD::field('service_password');
+        CRUD::field('css_class');
         CRUD::field('description');
 
         /**

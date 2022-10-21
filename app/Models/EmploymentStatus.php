@@ -12,6 +12,7 @@ class EmploymentStatus extends Model
 
     protected $fillable = [
         'employment_status',
+        'order',
         'description'
     ];
 }

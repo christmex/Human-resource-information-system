@@ -30,6 +30,11 @@ class EmploymentStatusRequest extends FormRequest
                 'required',
                 Rule::unique('employment_statuses')->ignore(request()->id),
             ],
+            'order' => [
+                'required',
+                'int',
+                Rule::unique('employment_statuses')->ignore(request()->id),
+            ],
             'description' => 'required'
         ];
     }

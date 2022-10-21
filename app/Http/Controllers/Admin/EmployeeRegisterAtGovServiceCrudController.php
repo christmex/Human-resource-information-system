@@ -79,6 +79,7 @@ class EmployeeRegisterAtGovServiceCrudController extends CrudController
             'attribute' => 'fullname', // attribute that is shown to admin
             'pivot' => false, // on create&update, do you need to add/delete pivot table entries?
         ]);
+        // Ini harusnya melakukan pengecekan dulu, jika employee_id dibagian employee rolenya sudah ada yg yg bisa di tambah kesini maka tampilkan jika tidak hide
         $this->crud->addField([
             'type' => 'select',
             'name' => 'service_credential_id', // the relationship name in your Migration
@@ -88,6 +89,9 @@ class EmployeeRegisterAtGovServiceCrudController extends CrudController
         ]);
         // CRUD::field('goverment_service_id');
         CRUD::field('register_at');
+
+        $this->check();
+
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:
@@ -105,5 +109,9 @@ class EmployeeRegisterAtGovServiceCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
+    }
+
+    protected function check(){
+        dd($this);
     }
 }

@@ -40,6 +40,7 @@ class EmploymentStatusCrudController extends CrudController
     protected function setupListOperation()
     {
         CRUD::column('employment_status');
+        CRUD::column('order');
         CRUD::column('description');
 
         /**
@@ -60,6 +61,7 @@ class EmploymentStatusCrudController extends CrudController
         CRUD::setValidation(EmploymentStatusRequest::class);
 
         CRUD::field('employment_status');
+        CRUD::field('order');
         CRUD::field('description');
 
         /**

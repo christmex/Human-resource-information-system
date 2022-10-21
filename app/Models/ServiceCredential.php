@@ -15,10 +15,15 @@ class ServiceCredential extends Model
         'service_url',
         'service_login',
         'service_password',
+        'css_class',
         'description',
     ];
 
     public function ServiceUrl() {
         return '<a href="'.$this->service_url.'" target="_blank">'.$this->service_url.'</a>';
+    }
+
+    public function GovermentService(){
+        return $this->hasOne(GovermentService::class);
     }
 }

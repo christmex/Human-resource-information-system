@@ -137,8 +137,38 @@ class EmployeeCrudController extends CrudController
                 });
             }
         ]);
+        CRUD::addColumn([
+            "label" => "Register at Goverment Service",
+            "entity" => "EmployeeRegisterAtGovService.ServiceCredential", //relation in model
+            "model" => "App\Models\EmployeeRegisterAtGovService",
+            "type" => "select",
+            "attribute" => 'service_name',
+            // 'searchLogic' => 'text'
+            'searchLogic' => function ($query, $column, $searchTerm) {
+                $query->orWhereHas('EmployeeRegisterAtGovService.ServiceCredential', function ($q) use ($column, $searchTerm) {
+                    $q->where('service_name', 'like', '%'.$searchTerm.'%');
+                });
+            },
+            'wrapper' => [
+                'element' => 'span',
+                'class' => function ($crud, $column, $entry, $related_key) {
+                    
+                    $obj = $entry->EmployeeRegisterAtGovService;
+                    foreach ($obj as $value) {
+                        // return $value->ServiceCredential->css_class;
+                        return $value->service_credential_id;
+                    }
+                    // if ($column['text'] == 'P') {
+                    //     return 'badge badge-danger';
+                    // }
+        
+                    // return 'badge badge-info';
+                }
+            ]
+        ]);
 
         CRUD::column('description');
+        $this->crud->addButtonFromModelFunction('line', 'register_employee_at_gov_service', 'ButtonForRegisterEmployeeToGovService', 'beginning');
         /**
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');

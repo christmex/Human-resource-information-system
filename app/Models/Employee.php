@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\ServiceCredential;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Permission\Models\Role as SpatieRole;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Employee extends Model
 {
@@ -61,7 +62,60 @@ class Employee extends Model
 
     public function AllRoles()
     {
-        return $this->hasMany('App\Models\EmployeeRole')->with('Role');
+        return $this->JustRoles()->with('Role');
+    }
+
+    public function EmployeeRegisterAtGovService(){
+        return $this->JustEmployeeRegisterAtGovService()->with('ServiceCredential');
+    }
+
+    public function JustEmployeeWithEmploymentStatus(){
+        return $this->JustRoles()->with('EmploymentStatus');
+    }
+
+    public function JustRoles(){
+        return $this->hasMany('App\Models\EmployeeRole');
+    }
+
+    public function JustEmployeeRegisterAtGovService(){
+        return $this->hasMany('App\Models\EmployeeRegisterAtGovService');
+    }
+
+    public function ButtonForRegisterEmployeeToGovService($crud = false)
+    {
+        $result = "";
+
+        // Gett all Service redential
+        $data = ServiceCredential::with('GovermentService')->get();
+
+        // Get all employee status from employee roles
+        $employeeStatus = []; // All employee Status
+        foreach ($this->JustEmployeeWithEmploymentStatus as $value) {
+            // $employeeStatus[] = $value->employment_status_id;
+            $employeeStatus[] = $value->EmploymentStatus->order;
+        }
+
+        // Get All Employee who already registered at gov service
+        $employeeRegisteredatGovService = [];
+        foreach ($this->JustEmployeeRegisterAtGovService as $value) {
+            $employeeRegisteredatGovService[] = $value->service_credential_id;
+        }
+
+        foreach ($data as $value) {
+            $employeeStatusMax = max($employeeStatus); // Get the highest employee status
+
+            // Cek jika employee sudah ada data di Employee Register at Gov Service maka tidka usah tampilkan lagi tombolnya
+            if(!in_array($value->id,$employeeRegisteredatGovService)){
+                // Cek jika employee status di atas semua service
+                if($value->GovermentService->required_employment_status_id <= $employeeStatusMax){
+                    $result .= '<a class="btn btn-sm btn-link" target="_blank" href="'.$value->service_url.'" data-toggle="tooltip" title="Add to '.$value->service_name.'."><i class="la la-plus"></i> Add to '.$value->service_name.'.</a>';
+                }
+            }
+
+            
+        }
+        return $result;
+
     }
 
 }

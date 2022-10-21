@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('service_url');
             $table->string('service_login');
             $table->string('service_password');
+            $table->string('css_class')->nullable();
             $table->text('description');
             $table->timestamps();
         });

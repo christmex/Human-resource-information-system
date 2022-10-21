@@ -71,16 +71,19 @@ class DatabaseSeeder extends Seeder
         // Employment Status
         \App\Models\EmploymentStatus::create([
             'employment_status' => '3 Bulan Percobaan',
+            'order' => 1,
             'description' => 'Pegawai yang baru '
         ]);
 
         \App\Models\EmploymentStatus::create([
             'employment_status' => 'GTTY/PTTY',
+            'order' => 2,
             'description' => 'Pegawai/Guru Tidak Tetap, umumnya status ini diberikan jika pegawai telah selesai melewati masa percobaan selama 3 bulan plus kinerja yang baik'
         ]);
 
         \App\Models\EmploymentStatus::create([
             'employment_status' => 'GTY/PTY',
+            'order' => 3,
             'description' => 'Pegawai/Guru Tetap, umumnya status ini diberikan jika minimal 2 tahun masa kontrak plus kinerja yang baik, jika kinerja kurang bagus maka kemungkinan pegawai akan dilanjutkan dengan pkwt, di kasus lain, ada pegawai yang tidak perlu menunggu 2 tahun untuk menjadi Pegawai/Guru Tetap'
         ]);
 
